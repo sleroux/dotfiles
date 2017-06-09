@@ -42,6 +42,10 @@ Plugin 'powerline/powerline'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" tmux stuff
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'benmills/vimux'
+
 " ------ Colors!
 
 " ps_color colorscheme theme
@@ -69,6 +73,7 @@ Plugin 'facebook/vim-flow'
 " Swift stuff
 Plugin 'keith/Swift.vim'
 Plugin 'keith/sourcekittendaemon.vim'
+Plugin 'gfontenot/vim-xcode'
 
 " Syntax highlighting for Rust
 Plugin 'rust-lang/rust.vim'
@@ -108,8 +113,8 @@ filetype plugin on
 
 " My vim options
 set expandtab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set number
 set wildmode=full
 set wildmenu
@@ -128,6 +133,7 @@ set hlsearch
 set incsearch
 set nobackup
 set noswapfile
+set splitbelow
 
 " Make :Explore list look better
 let g:netrw_liststyle=3
@@ -142,9 +148,12 @@ if ! has("gui_running")
 endif
 " feel free to choose :set background=light for a different style
 set background=dark
-colors sorcerer 
+colors mustang
 
 let mapleader=" "
+
+" Set up max line length highlight to 100 characters
+call matchadd('ColorColumn', '\%81v', 100)
 
 " Remaps
 map <leader>ff :Ex<CR>
@@ -153,6 +162,8 @@ nmap <leader>p :TagbarToggle<CR>
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+map <leader>vp :VimuxPromptCommand<CR>
 
 " Configurable options from plugins
 let g:ycm_always_populate_location_list = 1
