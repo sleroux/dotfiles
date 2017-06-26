@@ -46,6 +46,12 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'benmills/vimux'
 
+" Markdown is awesome
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
+" Comments
+Plugin 'scrooloose/nerdcommenter'
+
 " ------ Colors!
 
 " ps_color colorscheme theme
@@ -94,6 +100,8 @@ Plugin 'scrooloose/syntastic'
 " Syntax suport for Haxe
 Plugin 'jdonaldson/vaxe'
 
+Plugin 'vim-scripts/ShaderHighLight'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -138,6 +146,9 @@ set splitbelow
 " Make :Explore list look better
 let g:netrw_liststyle=3
 
+" Hide stupid .meta files from Unity
+let g:netrw_list_hide= '.*\.meta$'
+
 " Git gutter optoins
 set updatetime=250
 
@@ -170,3 +181,5 @@ let g:ycm_always_populate_location_list = 1
 let g:clang_complete_macros = 1
 let g:ycm_rust_src_path = '/Users/sleroux/development/rust/src'
 let g:netrw_liststyle=3
+
+let vim_markdown_preview_github=1

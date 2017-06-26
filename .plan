@@ -1,0 +1,48 @@
+June 22, 2017
+-------------
+
+- Pushed up the Error refactor PR and address all of the comments. Just waiting for final sign off before merging in.
+- Pushed up a patch that links in the UnityEngine.dll so the tests don't break. Tried to use MonoDevelop's mcs instead of
+  the command line but ran into issues with /tmp/unity-monodevelop-* not being generated if the never runs MonoDevelop.
+- Discussed moving from Actions -> Delegates as the callback model for the SDK.
+- Started a WIP PR that moves all of the delegates into a single file. 
+- Started to work on building out the C# interface for the plugins by starting with a concrete implementation of Web Pay for iOS.
+
+Goal for tomorrow is to continue working on the plugin interface stuff and push up a PR for review before the weekend. It would be
+nice to sync up with the C# code Jeff is writing to link it all together some how but I'm not blocked on it. Once the interface
+is in place and discussed we can probably start to share the API with Snowman while we finish implementing the native/web bits.
+I'm looking to start the iOS web pay implementation on Monday.
+
+TIL: you can use valgrind to generate an ASCII graph of the memory any command line program uses! (valgrind --tool=massif <whatever command w/ args you were gonna run>)
+
+June 21, 2017
+-------------
+
+- Brainstormed with Jeff about a more robust interface for connecting the plugins to the game developer C# API. Submitted
+  proposal: https://github.com/Shopify/unity-buy-sdk/issues/106
+- Started working on the error refactoring proposal on sleroux/error-refactor. Proposal located
+  here: https://github.com/Shopify/unity-buy-sdk/issues/105. Discussing some implementation details.
+- Talked about the web checkout experience and we've agreed to go with a more custom WKWebView implementation that 
+  allows the web checkout to feel more integrated and auto-close when the checkout is done.
+- Finished my R%D onboarding! Still need to get setup with devup though...
+
+Hoping I can submit my first PR tomorrow for the error handling stuff and start working on building the new C# interface
+for plugins. I also need to come up with a quick proposal about the iOS web checkout implementation.
+
+June 20, 2017
+-------------
+
+- Created a prototype of web checkout using SFSafariViewController.
+- Learned more about getting the plugin code running from the Unity Buy SDK/Xcode.
+- Started working on a proposal documentation the 2 phase approach to building out web checkout.
+- Brainstormed error handling changes with Jeff to coalesce the errors into an interface (ShopifyError)
+  and return a List of relevant errors instead of coding in httpError, graphQL error.
+
+I probably need to start having a conversation about what a custom web view checkout experience looks like.
+Do we want it to be custom themed by the game developer? Should it be Shopify branded? 
+
+For the web checkout stuff, should we split up the Cart.cs class into two partial classes (one for core Cart stuff, the
+other for Checkout related logic?)
+
+
+
