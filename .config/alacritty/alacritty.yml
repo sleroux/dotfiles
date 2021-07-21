@@ -1,0 +1,7 @@
+font:
+  normal:
+    family: "Source Code Pro"
+  size: 13.0
+colors:
+  primary:
+    background: '#262626'
